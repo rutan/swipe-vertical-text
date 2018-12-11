@@ -9,7 +9,7 @@
     <div
       class="Page__Container"
       :style="{
-        left: `${-pageWidth}px`,
+        transform: `translateX(${-pageWidth}px)`,
         width: `${pageWidth * 3}px`,
         height: `${pageHeight}px`
       }"
@@ -45,7 +45,7 @@
     top: 0;
     overflow: hidden;
     display: flex;
-    transition: left 0.5s ease-out;
+    transition: transform 0.5s ease-out;
 
     &.is-stop {
       transition: none;
@@ -72,6 +72,7 @@ export default {
   mounted() {},
   methods: {
     onTouchStart(e) {
+      e.preventDefault();
       this.isTouching = true;
       this.$refs.container.classList.add('is-stop');
       if (e.changedTouches) {
@@ -83,7 +84,7 @@ export default {
     onTouchMove(e) {
       if (!this.isTouching) return;
       const x = e.changedTouches ? e.changedTouches[0].pageX : e.clientX;
-      this.$refs.container.style.left = `${-this.pageWidth + (x - this.moveStartX)}px`;
+      this.$refs.container.style.transform = `translateX(${-this.pageWidth + (x - this.moveStartX)}px)`;
     },
     onTouchEnd(e) {
       const x = e.changedTouches ? e.changedTouches[0].pageX : e.clientX;
@@ -92,15 +93,15 @@ export default {
         // ページ送り
         if (diffX > 0 && this.currentPage < this.pageSize - 1) {
           this.onChangePage(this.currentPage + 1);
-          this.$refs.container.style.left = `${-this.pageWidth + diffX - this.pageWidth}px`;
+          this.$refs.container.style.transform = `translateX(${-this.pageWidth + diffX - this.pageWidth}px)`;
         } else if (diffX < 0 && this.currentPage > 0) {
           this.onChangePage(this.currentPage - 1);
-          this.$refs.container.style.left = `${-this.pageWidth + diffX + this.pageWidth}px`;
+          this.$refs.container.style.transform = `translateX(${-this.pageWidth + diffX + this.pageWidth}px)`;
         }
       }
       setTimeout(() => {
         this.$refs.container.classList.remove('is-stop');
-        this.$refs.container.style.left = `${-this.pageWidth}px`;
+        this.$refs.container.style.transform = `translateX(${-this.pageWidth}px)`;
         this.isTouching = false;
       }, 1);
     }

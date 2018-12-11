@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "run-s clean build:*",
-    "build:parcel": "parcel build ./index.html -d dist",
+    "build:parcel": "parcel build ./index.html -d dist --public-url ./",
     "build:copy": "cpx './public/**/*' './dist'",
     "dev": "run-p build:copy dev:*",
     "dev:server": "parcel serve ./index.html",
