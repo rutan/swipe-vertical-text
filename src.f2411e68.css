@@ -1,0 +1,17 @@
+
+@font-face{font-family:"NotoSerifJP";src:url(NotoSerifJP-Regular.969c885d.woff2)
+}
+.TextBox[data-v-57e1ac]{position:relative;overflow:hidden;box-sizing:border-box;font-size:18px
+}
+.TextBox .TextBox__Inner[data-v-57e1ac]{font-family:"NotoSerifJP";writing-mode:vertical-rl;text-orientation:upright;line-break:strict;padding:2em;line-height:2;letter-spacing:.03em;column-gap:2em;box-sizing:border-box
+}
+.TextBox .TextBox__Html[data-v-57e1ac]{-moz-user-select:none;user-select:none
+}
+.TextBox .TextBox__LastDaemon[data-v-57e1ac]{width:1px;height:100%;background:red
+}
+.Page[data-v-9d182a]{position:relative;overflow:hidden
+}
+.Page .Page__Container[data-v-9d182a]{position:absolute;left:0;top:0;overflow:hidden;display:flex;transition:transform .5s ease-out
+}
+.Page .Page__Container.is-stop[data-v-9d182a]{transition:none
+}body,html{width:100%;height:100%}body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,Hiragino Kaku Gothic Pro,Meiryo,sans-serif}button{cursor:pointer}button:focus{outline:0}#app{width:100%;height:100%}
