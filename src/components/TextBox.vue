@@ -12,7 +12,7 @@
         width: `${width}px`,
         height: `${height}px`,
         'column-width': height + 'px',
-        top: `${-scrollHeight * position}px`
+        transform: `translateY(${-scrollHeight * position}px)`
       }"
       ref="htmlRef"
     >
@@ -35,7 +35,6 @@
   font-size: 18px;
 
   .TextBox__Inner {
-    position: relative;
     font-family: 'NotoSerifJP';
     writing-mode: vertical-rl;
     text-orientation: upright;
